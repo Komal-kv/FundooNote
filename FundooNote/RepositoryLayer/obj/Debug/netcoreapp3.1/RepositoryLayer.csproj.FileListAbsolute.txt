@@ -1,0 +1,16 @@
+E:\Git\FundooNote\FundooNote\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.deps.json
+E:\Git\FundooNote\FundooNote\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.runtimeconfig.json
+E:\Git\FundooNote\FundooNote\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.runtimeconfig.dev.json
+E:\Git\FundooNote\FundooNote\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.dll
+E:\Git\FundooNote\FundooNote\RepositoryLayer\bin\Debug\netcoreapp3.1\RepositoryLayer.pdb
+E:\Git\FundooNote\FundooNote\RepositoryLayer\bin\Debug\netcoreapp3.1\DatabaseLayer.dll
+E:\Git\FundooNote\FundooNote\RepositoryLayer\bin\Debug\netcoreapp3.1\DatabaseLayer.pdb
+E:\Git\FundooNote\FundooNote\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.csproj.AssemblyReference.cache
+E:\Git\FundooNote\FundooNote\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.GeneratedMSBuildEditorConfig.editorconfig
+E:\Git\FundooNote\FundooNote\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.AssemblyInfoInputs.cache
+E:\Git\FundooNote\FundooNote\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.AssemblyInfo.cs
+E:\Git\FundooNote\FundooNote\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.csproj.CoreCompileInputs.cache
+E:\Git\FundooNote\FundooNote\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.csproj.CopyComplete
+E:\Git\FundooNote\FundooNote\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.dll
+E:\Git\FundooNote\FundooNote\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.pdb
+E:\Git\FundooNote\FundooNote\RepositoryLayer\obj\Debug\netcoreapp3.1\RepositoryLayer.genruntimeconfig.cache

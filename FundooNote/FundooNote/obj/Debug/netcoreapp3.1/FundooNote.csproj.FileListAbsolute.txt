@@ -7,6 +7,7 @@ E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\FundooNote.runti
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\FundooNote.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\FundooNote.pdb
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Humanizer.dll
+E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
@@ -28,7 +29,11 @@ E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Microsoft.Identi
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
@@ -59,6 +64,7 @@ E:\Git\FundooNote\FundooNote\FundooNote\obj\Debug\netcoreapp3.1\FundooNote.Gener
 E:\Git\FundooNote\FundooNote\FundooNote\obj\Debug\netcoreapp3.1\FundooNote.AssemblyInfoInputs.cache
 E:\Git\FundooNote\FundooNote\FundooNote\obj\Debug\netcoreapp3.1\FundooNote.AssemblyInfo.cs
 E:\Git\FundooNote\FundooNote\FundooNote\obj\Debug\netcoreapp3.1\FundooNote.csproj.CoreCompileInputs.cache
+E:\Git\FundooNote\FundooNote\FundooNote\obj\Debug\netcoreapp3.1\FundooNote.MvcApplicationPartsAssemblyInfo.cs
 E:\Git\FundooNote\FundooNote\FundooNote\obj\Debug\netcoreapp3.1\FundooNote.MvcApplicationPartsAssemblyInfo.cache
 E:\Git\FundooNote\FundooNote\FundooNote\obj\Debug\netcoreapp3.1\staticwebassets\FundooNote.StaticWebAssets.Manifest.cache
 E:\Git\FundooNote\FundooNote\FundooNote\obj\Debug\netcoreapp3.1\FundooNote.RazorTargetAssemblyInfo.cache

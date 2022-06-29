@@ -41,7 +41,6 @@ namespace FundooNote
             var secret = this.Configuration.GetSection("JwtConfig").GetSection("SecretKey").Value;
             var key = Encoding.ASCII.GetBytes(secret);
 
-
             services.AddAuthentication(x =>
             {
                 x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -69,7 +68,6 @@ namespace FundooNote
                 };
             });
 
-
             services.AddSwaggerGen(setup =>
             {
                 // Include 'SecurityScheme' to use JWT Authentication
@@ -90,12 +88,10 @@ namespace FundooNote
                 };
 
                 setup.AddSecurityDefinition(jwtSecurityScheme.Reference.Id, jwtSecurityScheme);
-
                 setup.AddSecurityRequirement(new OpenApiSecurityRequirement
                 {
                     { jwtSecurityScheme, Array.Empty<string>() }
                 });
-
             });
 
             services.AddTransient<IUserBL, UserBL>();
@@ -113,6 +109,8 @@ namespace FundooNote
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

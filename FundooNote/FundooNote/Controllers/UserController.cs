@@ -78,7 +78,7 @@ namespace FundooNote.Controllers
                 }
 
                 bool token = this.userBL.ForgetPassword(email);
-                return this.Ok(new { success = true, message = "Forgot password" , data = token });  
+                return this.Ok(new { success = true, message = "Token has been sent" });  
             }
             catch (Exception e)
             {

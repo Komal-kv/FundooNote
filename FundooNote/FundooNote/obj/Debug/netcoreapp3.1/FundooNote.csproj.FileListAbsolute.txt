@@ -1,3 +1,4 @@
+E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\appsettings.json
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\FundooNote.exe
@@ -43,7 +44,6 @@ E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\System.IdentityM
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
-E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll

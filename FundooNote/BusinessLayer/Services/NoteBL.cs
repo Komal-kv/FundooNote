@@ -1,5 +1,5 @@
 ﻿using BusinessLayer.Interfaces;
-using DatabaseLayer.User;
+using DatabaseLayer.Note;
 using RepositoryLayer.Interfaces;
 using RepositoryLayer.Services.Entities;
 using System;
@@ -47,6 +47,30 @@ namespace BusinessLayer.Services
             try
             {
                 return await this.noteRL.GetAllNote(UserId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task<Note> GetNote(int UserId, int noteId)
+        {
+            try
+            {
+                return await this.noteRL.GetNote(UserId, noteId);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task UpdateNote(int UserId, int noteId, NoteUpdateModel noteUpdateModel)
+        {
+            try
+            {
+                await this.noteRL.UpdateNote(UserId, noteId, noteUpdateModel);
             }
             catch(Exception e)
             {

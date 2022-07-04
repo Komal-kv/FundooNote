@@ -30,6 +30,30 @@ namespace BusinessLayer.Services
             }
         }
 
+        public async Task ArchiveNote(int UserId, int noteId)
+        {
+            try
+            {
+                await this.noteRL.ArchiveNote(UserId, noteId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task ChangeColorNote(int UserId, int noteId, string color)
+        {
+            try
+            {
+                await noteRL.ChangeColorNote(UserId, noteId, color);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
         public async Task DeleteNote(int UserId, int noteId)
         {
             try
@@ -61,6 +85,42 @@ namespace BusinessLayer.Services
                 return await this.noteRL.GetNote(UserId, noteId);
             }
             catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task PinNote(int UserId, int noteId)
+        {
+            try
+            {
+                await this.noteRL.PinNote(UserId, noteId);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task ReminderNote(int UserId, int noteId, DateTime dateTime)
+        {
+            try
+            {
+                await this.noteRL.ReminderNote(UserId, noteId, dateTime);
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task TrashNote(int UserId, int noteId)
+        {
+            try
+            {
+                await this.noteRL.TrashNote(UserId, noteId);
+            }
+            catch(Exception e)
             {
                 throw e;
             }

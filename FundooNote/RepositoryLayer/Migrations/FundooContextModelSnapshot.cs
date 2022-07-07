@@ -19,6 +19,21 @@ namespace RepositoryLayer.Migrations
                 .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("RepositoryLayer.Services.Entities.Label", b =>
+                {
+                    b.Property<string>("LabelName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("NoteId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.ToTable("Labels");
+                });
+
             modelBuilder.Entity("RepositoryLayer.Services.Entities.Note", b =>
                 {
                     b.Property<int>("NoteId")

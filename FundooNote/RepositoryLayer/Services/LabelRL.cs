@@ -41,5 +41,76 @@ namespace RepositoryLayer.Services
                 throw e;
             }
         }
+
+        public async Task<string> DeleteLabel(int UserId, int NoteId)
+        {
+            try
+            {
+                var deleteLabel = fundooContext.Labels.Where(X => X.UserId == UserId && X.NoteId == NoteId).FirstOrDefault();
+                if (deleteLabel != null)
+                {
+                    fundooContext.Labels.Remove(deleteLabel);
+                    await fundooContext.SaveChangesAsync();
+                    return "Label Deleted Successfully";
+                }
+                else
+                {
+                    return null;
+                }
+            }
+            catch(Exception e)
+            {
+
+                throw e;
+            }
+        }
+
+        public async Task<IEnumerable<Label>> GetAllLabels(int UserId)
+        {
+            try
+            {
+                return await fundooContext.Labels.Where(x => x.UserId == UserId).ToListAsync();
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public async Task<List<Label>> GetLabelByNoteId(int UserId, int NoteId)
+        {
+            try
+            {
+                return await fundooContext.Labels.Where(u => u.UserId == UserId && u.NoteId == NoteId).ToListAsync();
+            }
+            catch(Exception e)
+            {
+
+                throw e;
+            }
+        }
+
+        public async Task<string> UpdateLabel(int UserId, int NoteId, string LabelName)
+        {
+            try
+            {
+                var update = fundooContext.Labels.Where(X => X.UserId == UserId && X.NoteId == NoteId).FirstOrDefault();
+                if (update != null)
+                {
+                    update.LabelName = LabelName;
+                    update.NoteId = NoteId;
+                    await fundooContext.SaveChangesAsync();
+                    return "Label is modified";
+                }
+                else
+                {
+                    return "Label is not modified";
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
+            }
+        }
     }
 }

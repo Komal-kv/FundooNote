@@ -1,4 +1,5 @@
-﻿using RepositoryLayer.Services.Entities;
+﻿using DatabaseLayer.Label;
+using RepositoryLayer.Services.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,8 +10,8 @@ namespace RepositoryLayer.Interfaces
     public interface ILabelRL
     {
         Task AddLabel(int UserId, int NoteId, string Labelname);
-        Task<List<Label>> GetLabelByNoteId(int UserId, int NoteId);
-        Task<IEnumerable<Label>> GetAllLabels(int UserId);
+        Task<Label> GetLabelByNoteId(int UserId, int NoteId);
+        Task<List<Label>> GetAllLabels(int UserId);
         Task<string> UpdateLabel(int UserId, int NoteId, string LabelName);
         Task<string> DeleteLabel(int UserId, int NoteId);
 

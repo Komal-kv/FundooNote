@@ -5,7 +5,6 @@ using Microsoft.IdentityModel.Tokens;
 using RepositoryLayer.Interfaces;
 using RepositoryLayer.Services.Entities;
 using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
 using System.Security.Claims;

@@ -1,8 +1,11 @@
 ﻿using BusinessLayer.Interfaces;
+using DatabaseLayer.Label;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RepositoryLayer.Services;
+using RepositoryLayer.Services.Entities;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -58,15 +61,15 @@ namespace FundooNote.Controllers
                 var currentUser = HttpContext.User;
                 int userId = Convert.ToInt32(currentUser.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
 
-                var labels = await labelBL.GetAllLabels(userId);
-                if (labels != null)
+                var label = fundooContext.Labels.FirstOrDefault(u => u.UserId == userId);
+                if (label == null)
                 {
-                    return this.Ok(new { status = 200, isSuccess = true, Message = "lables are ready", data = labels });
+                    this.BadRequest(new { success = false, Message = "Label doesn't exist" });
                 }
-                else
-                {
-                    return this.NotFound(new { isSuccess = false, Message = "No label found" });
-                }
+
+                List<Label> labelList = new List<Label>();
+                labelList = await this.labelBL.GetAllLabels(userId);
+                return Ok(new { success = true, Message = $"Note Obtained successfully ", data = labelList });
             }
             catch(Exception e)
             {
@@ -85,14 +88,13 @@ namespace FundooNote.Controllers
                 int userId = Convert.ToInt32(currentUser.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
 
                 var labels = await labelBL.GetLabelByNoteId(userId, NoteId);
-                if (labels.Count != 0)
+                if (labels == null)
                 {
-                    return this.Ok(new { status = 200, isSuccess = true, message = "  label found Successfully", data = labels });
+                    return this.BadRequest(new { Success = false, message = "label not Found" });
                 }
-                else
-                {
-                    return this.NotFound(new { isSuccess = false, message = "label not Found" });
-                }
+                var label1 = await this.labelBL.GetLabelByNoteId(userId, NoteId);
+                return this.Ok(new { Success = true, message = "  label found Successfully", data = label1 });
+
             }
             catch(Exception e)
             {
@@ -113,12 +115,10 @@ namespace FundooNote.Controllers
                 var result = await labelBL.UpdateLabel(userId, NoteId, LabelName);
                 if (result != null)
                 {
-                    return this.Ok(new { status = 200, isSuccess = true, message = "Label Updated Successfully", data = result });
+                    return this.Ok(new { Success = true, message = "Label Updated Successfully", data = result });
                 }
-                else
-                {
-                    return this.NotFound(new { isSuccess = false, message = "No Label Found" });
-                }
+                await this.labelBL.UpdateLabel(userId, NoteId, LabelName);
+                return this.BadRequest(new { Success = false, message = "No Label Found" });
             }
             catch(Exception e)
             {
@@ -128,7 +128,7 @@ namespace FundooNote.Controllers
         }
 
         [Authorize]
-        [HttpDelete("DeleteNote/{NoteId}")]
+        [HttpDelete("DeleteLabel/{NoteId}")]
         public async Task<IActionResult> DeleteLabel(int NoteId)
         {
             try
@@ -139,12 +139,10 @@ namespace FundooNote.Controllers
                 var delete = await labelBL.DeleteLabel(userId, NoteId);
                 if (delete != null)
                 {
-                    return this.Ok(new {status = 200, isSuccess = true , message = "Label Deleted Successfully" });
+                    return this.Ok(new {Success = true , message = "Label Deleted Successfully" });
                 }
-                else
-                {
-                    return this.NotFound(new { isSuccess = false, message = "Label not found" });
-                }
+                await this.labelBL.DeleteLabel(userId, NoteId);
+                return this.BadRequest(new { Success = false, message = "Label not found" });
             }
             catch(Exception e)
             {

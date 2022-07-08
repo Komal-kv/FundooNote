@@ -33,7 +33,7 @@ namespace FundooNote.Controllers
         }
 
         [Authorize]
-        [HttpPost]
+        [HttpPost("AddNote")]
         public async Task<ActionResult> AddNote(NotePostModel notePostModel)
         {
             try
@@ -50,7 +50,7 @@ namespace FundooNote.Controllers
         }
 
         [Authorize]
-        [HttpGet]
+        [HttpGet("GetAllNote")]
         public async Task<ActionResult> GetAllNote()
         {
             try
@@ -76,7 +76,7 @@ namespace FundooNote.Controllers
         }
 
         [Authorize]
-        [HttpDelete("{NoteId}")]
+        [HttpDelete("DeleteNote/{NoteId}")]
         public async Task<ActionResult> DeleteNote(int NoteId)
         {
             try
@@ -100,7 +100,7 @@ namespace FundooNote.Controllers
         }
 
         [Authorize]
-        [HttpGet("{noteid}")]
+        [HttpGet("GetNote/{noteid}")]
         public async Task<ActionResult> GetNote(int noteid)
         {
             try

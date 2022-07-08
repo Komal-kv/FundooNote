@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Interfaces;
+using DatabaseLayer.Label;
 using RepositoryLayer.Interfaces;
 using RepositoryLayer.Services.Entities;
 using System;
@@ -31,7 +32,7 @@ namespace BusinessLayer.Services
         {
             try
             {
-                return await labelRL.DeleteLabel(UserId, NoteId);
+               return await this.labelRL.DeleteLabel(UserId, NoteId);
             }
             catch(Exception e)
             {
@@ -40,11 +41,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public async Task<IEnumerable<Label>> GetAllLabels(int UserId)
+        public async Task<List<Label>> GetAllLabels(int UserId)
         {
             try
             {
-                return await labelRL.GetAllLabels(UserId);
+                return await this.labelRL.GetAllLabels(UserId);
             }
             catch(Exception e)
             {
@@ -52,7 +53,7 @@ namespace BusinessLayer.Services
             }
         }
 
-        public async Task<List<Label>> GetLabelByNoteId(int UserId, int NoteId)
+        public async Task <Label> GetLabelByNoteId(int UserId, int NoteId)
         {
             try
             {

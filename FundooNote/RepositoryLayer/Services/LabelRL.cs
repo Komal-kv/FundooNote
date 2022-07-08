@@ -1,21 +1,23 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DatabaseLayer.Label;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using RepositoryLayer.Interfaces;
 using RepositoryLayer.Services.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RepositoryLayer.Services
 {
     public class LabelRL : ILabelRL
     {
-        public readonly FundooContext fundooContext; //context class is used to query or save data to the database.
-        public LabelRL(FundooContext fundooContext)
+        FundooContext fundooContext; //context class is used to query or save data to the database.
+        IConfiguration configuration;
+        public LabelRL(FundooContext fundooContext, IConfiguration configuration)
         {
             this.fundooContext = fundooContext;
+            this.configuration = configuration;
         }
 
         public async Task AddLabel(int UserId, int NoteId, string Labelname)
@@ -65,11 +67,17 @@ namespace RepositoryLayer.Services
             }
         }
 
-        public async Task<IEnumerable<Label>> GetAllLabels(int UserId)
+        public async Task<List<Label>> GetAllLabels(int UserId)
         {
             try
             {
-                return await fundooContext.Labels.Where(x => x.UserId == UserId).ToListAsync();
+                var label = fundooContext.Labels.FirstOrDefault(u => u.UserId == UserId);
+                if (label == null)
+                {
+                    return null;
+                }
+                return await fundooContext.Labels.ToListAsync();
+               
             }
             catch(Exception e)
             {
@@ -77,11 +85,11 @@ namespace RepositoryLayer.Services
             }
         }
 
-        public async Task<List<Label>> GetLabelByNoteId(int UserId, int NoteId)
+        public async Task<Label> GetLabelByNoteId(int UserId, int NoteId)
         {
             try
             {
-                return await fundooContext.Labels.Where(u => u.UserId == UserId && u.NoteId == NoteId).ToListAsync();
+                return await fundooContext.Labels.FirstOrDefaultAsync(u => u.UserId == UserId && u.NoteId == NoteId);
             }
             catch(Exception e)
             {
@@ -98,7 +106,6 @@ namespace RepositoryLayer.Services
                 if (update != null)
                 {
                     update.LabelName = LabelName;
-                    update.NoteId = NoteId;
                     await fundooContext.SaveChangesAsync();
                     return "Label is modified";
                 }

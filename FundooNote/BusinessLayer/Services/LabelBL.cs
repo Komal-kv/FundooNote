@@ -28,11 +28,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public async Task<string> DeleteLabel(int UserId, int NoteId)
+        public async Task DeleteLabel(int UserId, int NoteId)
         {
             try
             {
-               return await this.labelRL.DeleteLabel(UserId, NoteId);
+               await this.labelRL.DeleteLabel(UserId, NoteId);
             }
             catch(Exception e)
             {
@@ -66,11 +66,11 @@ namespace BusinessLayer.Services
             }
         }
 
-        public async Task<string> UpdateLabel(int UserId, int NoteId, string Labelname)
+        public async Task UpdateLabel(int UserId, int NoteId, string Labelname)
         {
             try
             {
-                return await labelRL.UpdateLabel(UserId, NoteId, Labelname);
+                await labelRL.UpdateLabel(UserId, NoteId, Labelname);
             }
             catch(Exception e)
             {

@@ -38,7 +38,6 @@ namespace FundooNote.Controllers
                 if (Label != null)
                 {
                     return this.BadRequest(new { status = 301, isSuccess = false, Message = "Enter Distinct NoteId" });
-
                 }
                 await this.labelBL.AddLabel(userid, NoteId, LabelName);
 
@@ -112,13 +111,14 @@ namespace FundooNote.Controllers
                 var currentUser = HttpContext.User;
                 int userId = Convert.ToInt32(currentUser.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
 
-                var result = await labelBL.UpdateLabel(userId, NoteId, LabelName);
-                if (result != null)
+                var label = fundooContext.Labels.FirstOrDefault(x => x.UserId == userId && x.NoteId == NoteId);
+                if (label == null)
                 {
-                    return this.Ok(new { Success = true, message = "Label Updated Successfully", data = result });
+                    return this.BadRequest(new { Success = false, message = "No Label Found" });                   
                 }
                 await this.labelBL.UpdateLabel(userId, NoteId, LabelName);
-                return this.BadRequest(new { Success = false, message = "No Label Found" });
+                return this.Ok(new { Success = true, message = "Label Updated Successfully" });
+
             }
             catch(Exception e)
             {
@@ -136,13 +136,14 @@ namespace FundooNote.Controllers
                 var currentUser = HttpContext.User;
                 int userId = Convert.ToInt32(currentUser.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
 
-                var delete = await labelBL.DeleteLabel(userId, NoteId);
-                if (delete != null)
+                var label = fundooContext.Labels.FirstOrDefault(u => u.UserId == userId && u.NoteId == NoteId);
+                if (label == null)
                 {
-                    return this.Ok(new {Success = true , message = "Label Deleted Successfully" });
+                    return this.BadRequest(new { Success = false, message = "Label not found" });
                 }
                 await this.labelBL.DeleteLabel(userId, NoteId);
-                return this.BadRequest(new { Success = false, message = "Label not found" });
+                return this.Ok(new { Success = true, message = "Label Deleted Successfully" });
+
             }
             catch(Exception e)
             {

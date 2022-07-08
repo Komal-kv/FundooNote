@@ -44,20 +44,15 @@ namespace RepositoryLayer.Services
             }
         }
 
-        public async Task<string> DeleteLabel(int UserId, int NoteId)
+        public async Task DeleteLabel(int UserId, int NoteId)
         {
             try
             {
-                var deleteLabel = fundooContext.Labels.Where(X => X.UserId == UserId && X.NoteId == NoteId).FirstOrDefault();
-                if (deleteLabel != null)
+                var label = fundooContext.Labels.Where(X => X.UserId == UserId && X.NoteId == NoteId).FirstOrDefault();
+                if (label != null)
                 {
-                    fundooContext.Labels.Remove(deleteLabel);
-                    await fundooContext.SaveChangesAsync();
-                    return "Label Deleted Successfully";
-                }
-                else
-                {
-                    return null;
+                    fundooContext.Labels.Remove(label);
+                    await fundooContext.SaveChangesAsync();                   
                 }
             }
             catch(Exception e)
@@ -77,9 +72,27 @@ namespace RepositoryLayer.Services
                     return null;
                 }
                 return await fundooContext.Labels.ToListAsync();
-               
+
+                // Get All Label By Linq Join query
+
+                //return await fundooContext.Labels
+                //    .Where(l => l.UserId == UserId)
+                //    .Join(fundooContext.Notes
+                //    .Where(n => n.NoteId == label.NoteId),
+                //    l => l.NoteId,
+                //    n => n.NoteId,
+                //    (l, n) => new LabelResponseModel
+                //    {
+                //        UserId = l.UserId,
+                //        NoteId = n.NoteId,
+                //        Title = n.Title,
+                //        Description = n.Description,
+                //        LabelName = l.LabelName,
+
+                //    }).ToListAsync();
+
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 throw e;
             }
@@ -98,7 +111,7 @@ namespace RepositoryLayer.Services
             }
         }
 
-        public async Task<string> UpdateLabel(int UserId, int NoteId, string LabelName)
+        public async Task UpdateLabel(int UserId, int NoteId, string LabelName)
         {
             try
             {
@@ -106,13 +119,8 @@ namespace RepositoryLayer.Services
                 if (update != null)
                 {
                     update.LabelName = LabelName;
-                    await fundooContext.SaveChangesAsync();
-                    return "Label is modified";
-                }
-                else
-                {
-                    return "Label is not modified";
-                }
+                    await fundooContext.SaveChangesAsync();                  
+                }              
             }
             catch(Exception e)
             {

@@ -9,10 +9,10 @@ namespace RepositoryLayer.Services.Entities
     {
         public string LabelName { get; set; }
 
-        [ForeignKey("Users")]
+        [ForeignKey("User")]
         public int UserId { get; set; }
 
-        [ForeignKey("Notes")]
+        [ForeignKey("Note")]
         public int NoteId { get; set; }     
     }
 }

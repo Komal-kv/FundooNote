@@ -19,6 +19,22 @@ namespace RepositoryLayer.Migrations
                 .HasAnnotation("ProductVersion", "5.0.6")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+            modelBuilder.Entity("RepositoryLayer.Services.Entities.Collaborator", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NoteId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CollaboratorEmail")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId", "NoteId");
+
+                    b.ToTable("Collabs");
+                });
+
             modelBuilder.Entity("RepositoryLayer.Services.Entities.Label", b =>
                 {
                     b.Property<int>("UserId")

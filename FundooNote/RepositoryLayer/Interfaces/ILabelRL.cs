@@ -14,5 +14,6 @@ namespace RepositoryLayer.Interfaces
         Task DeleteLabel(int UserId, int NoteId);
         Task<Label> GetLabelByNoteId(int UserId, int NoteId);
         Task<List<Label>> GetAllLabels(int UserId);
+        Task<List<LabelResponseModel>> GetAllLabelsByLinqJoins(int UserId);
     }
 }

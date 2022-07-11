@@ -53,6 +53,19 @@ namespace BusinessLayer.Services
             }
         }
 
+        public async Task<List<LabelResponseModel>> GetAllLabelsByLinqJoins(int UserId)
+        {
+            try
+            {
+                return await this.labelRL.GetAllLabelsByLinqJoins(UserId);
+            }
+            catch(Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
         public async Task <Label> GetLabelByNoteId(int UserId, int NoteId)
         {
             try

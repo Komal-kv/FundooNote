@@ -72,45 +72,46 @@ namespace RepositoryLayer.Services
                     return null;
                 }
                 return await fundooContext.Labels.ToListAsync();
-
-                // Get All Label By Linq Join query
-
-                //return await fundooContext.Labels
-                //    .Where(l => l.UserId == UserId)
-                //    .Join(fundooContext.Notes
-                //    .Where(n => n.NoteId == label.NoteId),
-                //    l => l.NoteId,
-                //    n => n.NoteId,
-                //    (l, n) => new LabelResponseModel
-                //    {
-                //        UserId = l.UserId,
-                //        NoteId = n.NoteId,
-                //        Title = n.Title,
-                //        Description = n.Description,
-                //        LabelName = l.LabelName,
-
-                //    }).ToListAsync();
-
-
-                //return await fundooContext.Labels
-                //.Where(a => a.UserId == UserId)
-                //.Join(fundooContext.Notes,
-                //a => a.NoteId,
-                //b => b.UserId,
-                //(a, b) => new LabelResponseModel
-                //{
-                //    UserId = label.UserId,
-                //    NoteId=b.NoteId,
-                //    Title=b.Title,
-                //    Description=b.Description,
-                //    LabelName=a.LabelName
-
-                //}).ToListAsync();
-
             }
             catch (Exception e)
             {
                 throw e;
+            }
+        }
+
+        public async Task<List<LabelResponseModel>> GetAllLabelsByLinqJoins(int UserId)
+        {
+            try
+            {
+                var label = fundooContext.Labels.FirstOrDefault(c => c.UserId == UserId);
+                if (label == null)
+                {
+                    return null;
+                }
+
+                var res = await(from User in fundooContext.Users
+                                join notes in fundooContext.Notes on User.UserId equals UserId
+                                join labels in fundooContext.Labels on notes.NoteId equals labels.NoteId
+                                where labels.UserId == UserId
+
+
+                                select new LabelResponseModel
+                                {
+                                    UserId = UserId,
+                                    NoteId = notes.NoteId,
+                                    Title = notes.Title,
+                                    FirstName = User.FirstName,
+                                    LastName = User.LastName,
+                                    Email = User.Email,
+                                    Description = notes.Description,
+                                    LabelName = labels.LabelName,
+                                }).ToListAsync();
+                return res;
+            }
+            catch(Exception ex)
+            {
+
+                throw ex;
             }
         }
 

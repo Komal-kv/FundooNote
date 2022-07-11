@@ -78,6 +78,29 @@ namespace FundooNote.Controllers
         }
 
         [Authorize]
+        [HttpGet("GetAllLabelsByLinq")]
+        public async Task<IActionResult> GetAllLabelsByLinqJoins()
+        {
+            try
+            {
+                var currentUser = HttpContext.User;
+                int userId = Convert.ToInt32(currentUser.Claims.FirstOrDefault(c => c.Type == "UserId").Value);
+
+                var labels = await labelBL.GetAllLabelsByLinqJoins(userId);
+                if (labels != null)
+                {
+                    return this.Ok(new { status = 200, success = true, message = "All Label are ready", data = labels });
+                }
+                else { return this.BadRequest(new { success = false, message = "No Label found" }); }
+            }
+            catch(Exception ex)
+            {
+
+                throw ex;
+            }
+        }
+
+        [Authorize]
         [HttpGet("GetLabelbByNoteId/{NoteId}")]
         public async Task<IActionResult> GetLabelByNoteId(int NoteId)
         {

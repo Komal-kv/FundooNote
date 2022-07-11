@@ -1,4 +1,3 @@
-E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\appsettings.Development.json
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\appsettings.json
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\FundooNote.exe
@@ -68,6 +67,7 @@ E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win-arm
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\Microsoft.Win32.Registry.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.0\Microsoft.Win32.SystemEvents.dll
 E:\Git\FundooNote\FundooNote\FundooNote\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Diagnostics.PerformanceCounter.dll

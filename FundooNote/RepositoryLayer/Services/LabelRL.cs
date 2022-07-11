@@ -91,6 +91,22 @@ namespace RepositoryLayer.Services
 
                 //    }).ToListAsync();
 
+
+                //return await fundooContext.Labels
+                //.Where(a => a.UserId == UserId)
+                //.Join(fundooContext.Notes,
+                //a => a.NoteId,
+                //b => b.UserId,
+                //(a, b) => new LabelResponseModel
+                //{
+                //    UserId = label.UserId,
+                //    NoteId=b.NoteId,
+                //    Title=b.Title,
+                //    Description=b.Description,
+                //    LabelName=a.LabelName
+
+                //}).ToListAsync();
+
             }
             catch (Exception e)
             {

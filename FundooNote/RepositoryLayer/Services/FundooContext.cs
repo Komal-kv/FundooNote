@@ -15,7 +15,7 @@ namespace RepositoryLayer.Services
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Label>()
-                  .HasKey(c => new { c.UserId, c.NoteId });
+                  .HasKey(p => new { p.UserId, p.NoteId });
         }
     }
 }
